@@ -1,0 +1,30 @@
+{
+  "name": "m6node-day4-classwork-web-scraping-ecommerce-product-data",
+  "version": "1.0.0",
+  "description": "scraping  product information from amazon.in",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex21c/m6node-day4-classwork-web-scraping-ecommerce-product-data.git"
+  },
+  "Keywords": [
+    "Web Scraping",
+    "Puppeteer",
+    "scraping product information from amazon.in",
+    "node.js package",
+    "alex21c"
+  ],
+  "author": "Abhishek Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alex21c/m6node-day4-classwork-web-scraping-ecommerce-product-data/issues"
+  },
+  "homepage": "https://github.com/Alex21c/m6node-day4-classwork-web-scraping-ecommerce-product-data#readme",
+  "dependencies": {
+    "puppeteer": "^22.8.0"
+  }
+}
