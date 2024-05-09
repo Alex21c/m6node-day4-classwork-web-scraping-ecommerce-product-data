@@ -39,18 +39,17 @@ async function init(){
       // let currencySymbol = element.querySelector('span.a-price-symbol').textContent;
       
       let rating = element.querySelector('a.a-popover-trigger.a-declarative>i.a-icon.a-icon-star-small.a-star-small-4-5.aok-align-bottom>span.a-icon-alt');
-      rating = rating ? rating.textContent.replace(' out of 5 stars', "") : undefined;
+      rating = rating ? Number(rating.textContent.replace(' out of 5 stars', "")) : '';
       
       let mrp = element.querySelector('span.a-price.a-text-price>span.a-offscreen');
-      mrp = mrp ? mrp.textContent : undefined;      
+      mrp = mrp ? Number(mrp.textContent.replace('₹',"").replaceAll(',', "")) : undefined;      
         let product = {
-          productName,
-          brand,
-          'ratingOutOf5': rating,
-          mrp,
-          price,
-          priceSymbol
-
+          'Rating': rating,
+          "Product Name" :  productName,
+          'Currency': priceSymbol,
+          "MRP": mrp, 
+          "Price": price,           
+          'Brand': brand
         };
 
       return product;
@@ -59,7 +58,7 @@ async function init(){
       
     }));
 
-    console.log(products);
+    // console.log(products);
     
     // now i want to save it into the excel file
     // Create a new workbook
@@ -76,11 +75,7 @@ async function init(){
     }
 
 
-    
-    
-    
-
-      
+  
     
   } catch (error) {
     console.log('There is an error, ', error);
@@ -89,7 +84,7 @@ async function init(){
       setTimeout(async ()=>{
 
         await browser.close();
-      },5000)
+      },2000)
   }
 
 
@@ -97,26 +92,26 @@ async function init(){
 
 init();
 
-learningToWriteFile();
-function learningToWriteFile(){
-  let products =[
-    {
-      'name': "10gm 999.9 gold",
-      'price': 80000
-    }
-  ];
+// learningToWriteFile();
+// function learningToWriteFile(){
+//   let products =[
+//     {
+//       'name': "10gm 999.9 gold",
+//       'price': 80000
+//     }
+//   ];
 
-  try {
-    let sheet = xlsx.utils.json_to_sheet(products);
-    let workbook = xlsx.utils.book_new();
-      xlsx.utils.book_append_sheet(workbook, sheet, 'sheet1');
+//   try {
+//     let sheet = xlsx.utils.json_to_sheet(products);
+//     let workbook = xlsx.utils.book_new();
+//       xlsx.utils.book_append_sheet(workbook, sheet, 'sheet1');
 
-      xlsx.writeFile(workbook, 'products.xlsx');
+//       xlsx.writeFile(workbook, 'products.xlsx');
     
-  } catch (error) {
-    console.log('ERROR saving data into excel file. ', error);
-  }
+//   } catch (error) {
+//     console.log('ERROR saving data into excel file. ', error);
+//   }
 
-}
+// }
 
 
