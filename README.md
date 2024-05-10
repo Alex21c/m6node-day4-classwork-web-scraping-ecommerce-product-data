@@ -26,6 +26,7 @@ to specify custom url from [amazon.in](https://www.amazon.in/), just update the 
 
 ## OUTPUT
 on Successfull operation, data shall be stored in `products.xlsx` file
+
 ![](productsFileImage.png)
 
 ## Tech. Stack Used:
