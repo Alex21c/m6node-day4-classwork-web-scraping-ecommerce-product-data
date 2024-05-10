@@ -24,6 +24,10 @@ to specify custom url from [amazon.in](https://www.amazon.in/), just update the 
   let URL = 'https://www.amazon.in/s?k=gold+coin+10gm&crid=17DMYS2GBHH7M&sprefix=gold+coin+10g%2Caps%2C237&ref=nb_sb_noss_1';
 ```
 
+## OUTPUT
+on Successfull operation, data shall be stored in `products.xlsx` file
+![](productsFileImage.png)
+
 ## Tech. Stack Used:
 + [NodeJS](https://nodejs.org/en/)
 + [Puppeteer](https://www.npmjs.com/package/puppeteer)
