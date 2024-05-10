@@ -6,6 +6,9 @@ import * as xlsx from 'xlsx';
 // Product Rating (if available)
 
 function storeProductsIntoExcelFile(products){
+    if(products.length===0){
+      return ;
+    }
         // now i want to filter all those products whose name is empty
         products = products.filter(product=> product['Product Name'] !== '' && product['Product Name'] !== 'Check each product page for other buying options.'
        )
@@ -30,8 +33,7 @@ async function init(){
   // let URL = 'https://alex21c.github.io/sampleScrapingData/20gmGoldBar.html';
   // macbook air
   // let URL = 'https://alex21c.github.io/sampleScrapingData/macbookAir.html';
-  let URL = 'https://www.amazon.in/s?k=gold+coin+10gm&crid=1BB41V3YA4OAD&sprefix=gold+coin+10g%2Caps%2C220&ref=nb_sb_noss_1';
-
+  let URL = 'https://www.amazon.in/s?k=smartphone&crid=1NDIS51X8V2ZF&sprefix=smartphone%2Caps%2C228&ref=nb_sb_noss_1';
   const browser = await puppeteer.launch({headless: false});
   try {
     // launch a browser and open a new blank tab
@@ -141,11 +143,13 @@ async function init(){
       }));
 
 
-
+      
+      storeProductsIntoExcelFile(products);
+    }else{
+      storeProductsIntoExcelFile(products);
     }
 
-    console.log('products are ' , products);
-    storeProductsIntoExcelFile(products);
+    
 
 
 
@@ -158,7 +162,7 @@ async function init(){
       setTimeout(async ()=>{
 
         await browser.close();
-      },3000)
+      },5000)
   }
 
 
